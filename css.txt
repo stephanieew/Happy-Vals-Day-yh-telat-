@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background: pink;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #ff8fa3;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    z-index: 2;
+}
+
+.letter {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-y: auto;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    display: none; /* Surat hanya muncul ketika amplop diklik */
+}
+
+.heart {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: red;
+    clip-path: polygon(50% 0%, 0% 50%, 25% 100%, 75% 100%, 100% 50%);
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.2);
+    }
+}
+
+.heart:hover {
+    background: darkred;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #ff4d4d;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.signature {
+    text-align: right;
+    font-style: italic;
+    color: #ff4d4d;
+}
+
+/* Interaksi klik untuk membuka surat */
+.envelope:hover .letter {
+    display: block;
+}
